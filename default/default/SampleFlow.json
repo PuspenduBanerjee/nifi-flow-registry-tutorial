@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1743827107148,
+    "description" : "Sample Multi Tenant flow",
+    "identifier" : "SampleFlow",
+    "lastModifiedTimestamp" : 1743827107148,
+    "name" : "SampleFlow",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
