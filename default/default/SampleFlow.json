@@ -93,7 +93,7 @@
     "inputPorts" : [ ],
     "labels" : [ ],
     "maxConcurrentTasks" : 1,
-    "name" : "NiFi Flow 1",
+    "name" : "Dev",
     "outputPorts" : [ ],
     "position" : {
       "x" : 0.0,
@@ -124,7 +124,8 @@
       },
       "properties" : {
         "Store State" : "Do not store state",
-        "canonical-value-lookup-cache-size" : "100"
+        "canonical-value-lookup-cache-size" : "100",
+        "TimeNow" : "${time:format(\"yyyy/MM/dd HH:mm:ss.SSS'Z'\", \"GMT\")}"
       },
       "propertyDescriptors" : {
         "Delete Attributes Expression" : {
@@ -153,6 +154,13 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Stateful Variables Initial Value",
+          "sensitive" : false
+        },
+        "TimeNow" : {
+          "displayName" : "TimeNow",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "TimeNow",
           "sensitive" : false
         }
       },
