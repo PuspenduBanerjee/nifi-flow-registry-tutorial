@@ -19,13 +19,13 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "a4dbdcf3-6419-3d2f-860c-0f697aa8aa8e",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
+        "id" : "3f1c2bfb-a69e-3b3f-a51f-dd4a1a95a0e4",
+        "name" : "LogMessage",
+        "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "6782debc-6e65-3335-9ce8-61e15c27a75e",
+      "identifier" : "e6575e40-4cd1-375a-a5cc-a1269f5410e5",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -80,15 +80,7 @@
     "externalControllerServiceReferences" : { },
     "flowFileConcurrency" : "UNBOUNDED",
     "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
-    "funnels" : [ {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "a4dbdcf3-6419-3d2f-860c-0f697aa8aa8e",
-      "position" : {
-        "x" : -354.0,
-        "y" : 365.5
-      }
-    } ],
+    "funnels" : [ ],
     "identifier" : "flow-contents-group",
     "inputPorts" : [ ],
     "labels" : [ ],
@@ -172,6 +164,64 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.4.0-SNAPSHOT"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "3f1c2bfb-a69e-3b3f-a51f-dd4a1a95a0e4",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "LogMessage",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -350.64010507880903,
+        "y" : 286.75
+      },
+      "properties" : {
+        "log-message" : "Here I am",
+        "log-level" : "info"
+      },
+      "propertyDescriptors" : {
+        "log-message" : {
+          "displayName" : "Log message",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-message",
+          "sensitive" : false
+        },
+        "log-level" : {
+          "displayName" : "Log Level",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-level",
+          "sensitive" : false
+        },
+        "log-prefix" : {
+          "displayName" : "Log prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "log-prefix",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.LogMessage",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ ],
