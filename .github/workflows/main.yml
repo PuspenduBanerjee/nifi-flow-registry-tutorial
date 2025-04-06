@@ -1,2 +1,16 @@
-- name: Datavolo Flow Diff
+            - name: Datavolo Flow Diff
+  # You may pin to the exact commit or the version.
+  # uses: datavolo-io/datavolo-flow-diff@954fe9fe605745ca9cc629116ea6d753c5b22aeb
   uses: datavolo-io/datavolo-flow-diff@v0.0.3
+  with:
+    # Original Flow
+    flowA: 
+    # New Version of the Flow
+    flowB: 
+    # GITHUB_TOKEN or a repository-scoped PAT
+    token: # default is ${{ github.token }}
+    # The full name of the repository in which to create or update a comment
+    repository: # default is ${{ github.repository }}
+    # The number of the issue or pull request in which to create a comment
+    issuenumber: # default is ${{ github.event.number }}
+          
