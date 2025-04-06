@@ -115,11 +115,19 @@
         "y" : 40.0
       },
       "properties" : {
+        "dummy" : "1",
         "Store State" : "Do not store state",
         "canonical-value-lookup-cache-size" : "100",
         "TimeNow" : "${time:format(\"yyyy/MM/dd HH:mm:ss.SSS'Z'\", \"America/Chicago\")}"
       },
       "propertyDescriptors" : {
+        "dummy" : {
+          "displayName" : "dummy",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "dummy",
+          "sensitive" : false
+        },
         "Delete Attributes Expression" : {
           "displayName" : "Delete Attributes Expression",
           "dynamic" : false,
