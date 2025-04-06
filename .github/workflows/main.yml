@@ -1,0 +1,2 @@
+- name: Datavolo Flow Diff
+  uses: datavolo-io/datavolo-flow-diff@v0.0.3
