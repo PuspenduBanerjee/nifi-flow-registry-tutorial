@@ -117,7 +117,7 @@
       "properties" : {
         "Store State" : "Do not store state",
         "canonical-value-lookup-cache-size" : "100",
-        "TimeNow" : "${time:format(\"yyyy/MM/dd HH:mm:ss.SSS'Z'\", \"GMT\")}"
+        "TimeNow" : "${time:format(\"yyyy/MM/dd HH:mm:ss.SSS'Z'\", \"America/Chicago\")}"
       },
       "propertyDescriptors" : {
         "Delete Attributes Expression" : {
@@ -188,8 +188,8 @@
         "y" : 286.75
       },
       "properties" : {
-        "log-message" : "Here I am",
-        "log-level" : "info"
+        "log-message" : "=*=${TimeNow}",
+        "log-level" : "warn"
       },
       "propertyDescriptors" : {
         "log-message" : {
