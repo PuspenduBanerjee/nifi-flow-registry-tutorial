@@ -1,16 +1,38 @@
-- name: Datavolo Flow Diff
-  # You may pin to the exact commit or the version.
-  # uses: datavolo-io/datavolo-flow-diff@954fe9fe605745ca9cc629116ea6d753c5b22aeb
-  uses: datavolo-io/datavolo-flow-diff@v0.0.3
-  with:
-    # Original Flow
-    flowA: 
-    # New Version of the Flow
-    flowB: 
-    # GITHUB_TOKEN or a repository-scoped PAT
-    token: # default is ${{ github.token }}
-    # The full name of the repository in which to create or update a comment
-    repository: # default is ${{ github.repository }}
-    # The number of the issue or pull request in which to create a comment
-    issuenumber: # default is ${{ github.event.number }}
-          
+name: Datavolo Flow Diff on Pull Requests
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+jobs:
+  execute_flow_diff:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    name: Executing Flow Diff
+    steps:
+      # checking out the code of the pull request (merge commit - if the PR is mergeable)
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+        with:
+          path: submitted-changes
+
+      # getting the path of the flow definition that changed (only one expected for now)
+      - id: files
+        uses: Ana06/get-changed-files@v1.2
+
+      # checking out the code without the change of the PR
+      - name: Checkout original code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          path: original-code
+      - run: cd original-code && git checkout HEAD^
+
+      # Running the diff
+      - name: Datavolo Flow Diff
+        uses: datavolo-io/datavolo-flow-diff@v0
+        id: flowdiff
+        with:
+          flowA: 'original-code/${{ steps.files.outputs.all }}'
+          flowB: 'submitted-changes/${{ steps.files.outputs.all }}'
