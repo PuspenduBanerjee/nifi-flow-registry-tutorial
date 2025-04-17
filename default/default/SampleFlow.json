@@ -95,7 +95,7 @@
     "processors" : [ {
       "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "INFO",
+      "bulletinLevel" : "WARN",
       "bundle" : {
         "artifact" : "nifi-update-attribute-nar",
         "group" : "org.apache.nifi",
